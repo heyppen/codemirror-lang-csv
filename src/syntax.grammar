@@ -13,7 +13,7 @@ expression {
 
   Number { $[0-9]+ }
   
-  Action { "discard" | "close" }
+  Action { "nop" | "discard" | "close" }
   
   Boolean { "true" | "false" }
 
