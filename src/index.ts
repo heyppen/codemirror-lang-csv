@@ -13,11 +13,11 @@ export const csvLanguage = LRLanguage.define({
   parser: parser.configure({
     props: [
       styleTags({
+        Comment: t.lineComment,
+        Pattern: t.literal,
+        Number: t.number,
+        Boolean: t.bool,
         Separator: t.separator,
-        Value: t.string,
-        String: t.string,
-        LineComment: t.lineComment,
-        "( )": t.paren,
       }),
     ],
   }),

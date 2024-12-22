@@ -1,25 +1,29 @@
-@top Program { expression* }
+@top Rules { (expression? (NewLine+ expression)*) }
 
-@skip { newline | Comment }
+@skip { Space | Comment }
 
 expression {
-  String |
-  Separator |
-  Value
+  Pattern Separator Number Separator Action Separator Boolean? Separator Boolean?
 }
 
 @tokens {
-  Separator { $[,] }
-
   Comment { "//" ![\n]* }
-
-  Value { ![,\n]+ }
   
-  String { '"' (!["\\] | "\\" _)* '"' }
+  Pattern { $[a-zA-Z\*]+ "://" $[a-zA-Z\.\*\/:]+ }
 
-  newline { $[\n]}
+  Number { $[0-9]+ }
+  
+  Action { "discard" | "close" }
+  
+  Boolean { "true" | "false" }
 
-  @precedence { String, Separator, Value }
+  Separator { "," }
+
+  NewLine { $[\n] }
+
+  Space { $[ \t\r]+ }
+
+  @precedence { NewLine, Comment, Boolean, Action, Pattern }
 }
 
 @detectDelim

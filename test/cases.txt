@@ -1,27 +1,27 @@
-# Separators
-,
-;
+# Blank
 
 ==>
 
-Program(Separator, Separator)
+Rules()
 
-# Strings
+# Comments only
 
-"hello"
-"world;s"
-"to,day"
+// hello
 
 ==>
 
-Program(String, String, String)
+Rules(Comment)
 
+# Base
 
-# Example
+//  abc
+*://*/*,3,close,false,false
 
-one;"two";three;four
-"first";second;;"fourth"
+https://b.com/*,3,close,false,false
 
 ==>
 
-Program(Value,Separator,String,Separator,Value,Separator,Value,String,Separator,Value,Separator,Separator,String)
+Rules(
+    Comment, NewLine,
+    Pattern, Separator, Number, Separator, Action, Separator, Boolean, Separator, Boolean, NewLine, NewLine,
+    Pattern, Separator, Number, Separator, Action, Separator, Boolean, Separator, Boolean)
