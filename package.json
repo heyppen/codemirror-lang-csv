@@ -1,7 +1,7 @@
 {
-  "name": "codemirror-lang-csv",
+  "name": "codemirror-lang-ct",
   "version": "0.1.1",
-  "description": "csv language support for CodeMirror",
+  "description": "ct language support for CodeMirror",
   "scripts": {
     "test": "mocha test/test.js",
     "prepare": "rollup -c"
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maybebot/codemirror-lang-csv.git"
+    "url": "https://github.com/heyppen/codemirror-lang-ct.git"
   },
   "license": "MIT"
 }
