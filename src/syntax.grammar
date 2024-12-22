@@ -1,6 +1,6 @@
 @top Program { expression* }
 
-@skip { newline }
+@skip { newline | Comment }
 
 expression {
   String |
@@ -9,9 +9,11 @@ expression {
 }
 
 @tokens {
-  Separator { $[,;] }
+  Separator { $[,] }
 
-  Value { ![,;\n]+ }
+  Comment { "//" ![\n]* }
+
+  Value { ![,\n]+ }
   
   String { '"' (!["\\] | "\\" _)* '"' }
 
